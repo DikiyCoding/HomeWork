@@ -14,12 +14,14 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private Intent intent;
+    private Context context;
     private LayoutInflater inflater;
     private List<Item> models;
     private Item model;
 
     public Adapter(Context context, List<Item> models) {
         this.models = models;
+        this.context = context;
         this.inflater = LayoutInflater.from(context);
         intent = new Intent(context, DetailActivity.class);
     }
@@ -72,6 +74,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 intent.putExtra("location", model.getLocation());
                 intent.putExtra("foundingDate", model.getFoundingDate());
                 intent.putExtra("keyFigures", model.getKeyFigures());
+                context.startActivity(intent);
             }
         }
     }
