@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity"
-    android:background="@drawable/background_gradient">
+    android:background="@drawable/background_gradient"
+    tools:context=".DetailActivity">
 
     <ImageView
-        android:id="@+id/ivLogo"
+        android:id="@+id/iv_logo"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:scaleType="fitStart"
-        android:layout_gravity="top|center"/>
+        android:layout_gravity="top|center"
+        android:scaleType="fitStart" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,77 +24,77 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/consolas"
+            android:includeFontPadding="false"
             android:text="@string/name"
-            android:fontFamily="@font/consolas"
-            android:textSize="14sp"
             android:textColor="@android:color/black"
-            android:includeFontPadding="false"/>
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/consolas"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
             android:includeFontPadding="false"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/consolas"
+            android:includeFontPadding="false"
             android:text="@string/location"
-            android:fontFamily="@font/consolas"
-            android:textSize="14sp"
             android:textColor="@android:color/black"
-            android:includeFontPadding="false"/>
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvLocation"
+            android:id="@+id/tv_location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/consolas"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
             android:includeFontPadding="false"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/consolas"
+            android:includeFontPadding="false"
             android:text="@string/founding_date"
-            android:fontFamily="@font/consolas"
-            android:textSize="14sp"
             android:textColor="@android:color/black"
-            android:includeFontPadding="false"/>
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvFoundingDate"
+            android:id="@+id/tv_founding_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/consolas"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
             android:includeFontPadding="false"
-            android:layout_marginBottom="10dp"/>
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/consolas"
+            android:includeFontPadding="false"
             android:text="@string/key_figures"
-            android:fontFamily="@font/consolas"
-            android:textSize="14sp"
             android:textColor="@android:color/black"
-            android:includeFontPadding="false"/>
+            android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvKeyFigures"
+            android:id="@+id/tv_key_figures"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/consolas"
-            android:textSize="14sp"
+            android:includeFontPadding="false"
             android:textColor="@android:color/black"
-            android:includeFontPadding="false"/>
+            android:textSize="14sp" />
 
     </LinearLayout>
 

@@ -4,9 +4,9 @@ import android.graphics.Bitmap;
 
 public class Item {
 
-    private final Bitmap image;
-    private final int imageId;
-    private final String name, location, foundingDate, type, keyFigures;
+    private Bitmap image;
+    private int imageId;
+    private String name, location, foundingDate, type, keyFigures;
 
     public Item(Bitmap image, int imageId, String name, String location, String foundingDate, String type, String keyFigures) {
         this.image = image;

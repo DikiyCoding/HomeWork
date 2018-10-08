@@ -13,14 +13,12 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
-    private final Intent intent;
-    private final Context context;
-    private final LayoutInflater inflater;
-    private final List<Item> models;
+    private Intent intent;
+    private LayoutInflater inflater;
+    private List<Item> models;
     private Item model;
 
     public Adapter(Context context, List<Item> models) {
-        this.context = context;
         this.models = models;
         this.inflater = LayoutInflater.from(context);
         intent = new Intent(context, DetailActivity.class);
@@ -56,11 +54,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         ViewHolder(View itemView) {
             super(itemView);
-            ivLogo = itemView.findViewById(R.id.ivLogo);
-            tvName = itemView.findViewById(R.id.tvName);
-            tvLocation = itemView.findViewById(R.id.tvLocation);
-            tvFoundingDate = itemView.findViewById(R.id.tvFoundingDate);
-            tvType = itemView.findViewById(R.id.tvType);
+            ivLogo = itemView.findViewById(R.id.iv_logo);
+            tvName = itemView.findViewById(R.id.tv_name);
+            tvLocation = itemView.findViewById(R.id.tv_location);
+            tvFoundingDate = itemView.findViewById(R.id.tv_founding_date);
+            tvType = itemView.findViewById(R.id.tv_type);
             itemView.setOnClickListener(this);
         }
 
@@ -74,7 +72,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 intent.putExtra("location", model.getLocation());
                 intent.putExtra("foundingDate", model.getFoundingDate());
                 intent.putExtra("keyFigures", model.getKeyFigures());
-                context.startActivity(intent);
             }
         }
     }

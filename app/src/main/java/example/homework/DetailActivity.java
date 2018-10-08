@@ -20,11 +20,11 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void viewsInit() {
-        ivLogo = findViewById(R.id.ivLogo);
-        tvName = findViewById(R.id.tvName);
-        tvLocation = findViewById(R.id.tvLocation);
-        tvFoundingDate = findViewById(R.id.tvFoundingDate);
-        tvKeyFigures = findViewById(R.id.tvKeyFigures);
+        ivLogo = findViewById(R.id.iv_logo);
+        tvName = findViewById(R.id.tv_name);
+        tvLocation = findViewById(R.id.tv_location);
+        tvFoundingDate = findViewById(R.id.tv_founding_date);
+        tvKeyFigures = findViewById(R.id.tv_key_figures);
     }
 
     private void valuesInit() {
