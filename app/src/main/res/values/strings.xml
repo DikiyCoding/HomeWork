@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Homework</string>
+    <string name="title_activity_main">Homework#3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Your login</string>
+    <string name="nav_header_subtitle">Your email</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="item_profile">Profile</string>
+    <string name="item_gallery">Gallery</string>
+    <string name="item_slideshow">Slideshow</string>
+    <string name="item_tools">Tools</string>
+    <string name="et_login">Your login</string>
+    <string name="et_email">Your email</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_edit">Edit</string>
 </resources>
