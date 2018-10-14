@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Homework</string>
+    <string name="app_name">Homework#4</string>
+    <string name="name">Производитель:</string>
+    <string name="location">Расположение:</string>
+    <string name="founding_date">Год основания:</string>
+    <string name="key_figures">Ключевые фигуры:</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
