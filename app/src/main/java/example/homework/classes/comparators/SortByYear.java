@@ -12,11 +12,9 @@ public class SortByYear implements Comparator<Item> {
 
         if (yearFirst > yearSecond) {
             return 1;
-        }
-        else if (yearFirst < yearSecond) {
+        } else if (yearFirst < yearSecond) {
             return -1;
-        }
-        else {
+        } else {
             return 0;
         }
     }
