@@ -1,10 +1,12 @@
-package example.homework;
+package example.homework.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import example.homework.R;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -32,7 +34,7 @@ public class DetailActivity extends AppCompatActivity {
         ivLogo.setImageResource(intent.getIntExtra("imageId", 0));
         tvName.setText(intent.getStringExtra("name"));
         tvLocation.setText(intent.getStringExtra("location"));
-        tvFoundingDate.setText(intent.getStringExtra("foundingDate"));
+        tvFoundingDate.setText(intent.getIntExtra("foundingDate", 0) + "");
         tvKeyFigures.setText(intent.getStringExtra("keyFigures"));
     }
 }

@@ -1,14 +1,16 @@
-package example.homework;
+package example.homework.classes;
 
 import android.graphics.Bitmap;
 
 public class Item {
 
     private Bitmap image;
-    private int imageId;
-    private String name, location, foundingDate, type, keyFigures;
+    private final int itemId;
+    private int imageId, foundingDate;
+    private String name, location, type, keyFigures;
 
-    public Item(Bitmap image, int imageId, String name, String location, String foundingDate, String type, String keyFigures) {
+    public Item(int itemId, Bitmap image, int imageId, String name, String location, int foundingDate, String type, String keyFigures) {
+        this.itemId = itemId;
         this.image = image;
         this.imageId = imageId;
         this.name = name;
@@ -16,6 +18,10 @@ public class Item {
         this.foundingDate = foundingDate;
         this.type = type;
         this.keyFigures = keyFigures;
+    }
+
+    public int getItemId() {
+        return itemId;
     }
 
     public Bitmap getImage() {
@@ -34,7 +40,7 @@ public class Item {
         return location;
     }
 
-    public String getFoundingDate() {
+    public int getFoundingDate() {
         return foundingDate;
     }
 

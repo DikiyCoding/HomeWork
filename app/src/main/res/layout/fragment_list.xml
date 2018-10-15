@@ -6,13 +6,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ListFragment">
+    tools:context=".fragments.ListFragment">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:color/black">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_centerInParent="true"
+                android:text="@string/tv_sort"
+                android:fontFamily="@font/consolas"
+                android:textColor="@android:color/background_light"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@id/btn_sort_by_number"
+                android:layout_toStartOf="@id/btn_sort_by_number" />
+
+            <Button
+                android:id="@+id/btn_sort_by_letter"
+                android:layout_width="105dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sort_button_shape"
+                android:fontFamily="@font/consolas"
+                android:includeFontPadding="false"
+                android:text="@string/btn_sort_by_letter"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/btn_sort_by_number"
+                android:layout_width="105dp"
+                android:layout_height="35dp"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/btn_sort_by_letter"
+                android:layout_toStartOf="@id/btn_sort_by_letter"
+                android:background="@drawable/sort_button_shape"
+                android:fontFamily="@font/consolas"
+                android:includeFontPadding="false"
+                android:text="@string/btn_sort_by_number"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
 
 </LinearLayout>
