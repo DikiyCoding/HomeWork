@@ -1,11 +1,8 @@
 package example.homework;
 
 import android.app.AlarmManager;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -21,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private AlarmManager alarmManager;
     private TimePicker timePicker;
     private int currentMinutes, currentHours;
-    public static final String cnlID = "first_alarm_channel";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +27,9 @@ public class MainActivity extends AppCompatActivity {
         timePicker = findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true);
         pendingIntent = PendingIntent.getBroadcast(this, 0,
-                new Intent(this, Receiver.class),
+                new Intent(this, TimeReceiver.class),
                 PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        createChannel();
     }
 
     @Override
@@ -63,24 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnStop:
                 alarmManager.cancel(pendingIntent);
-        }
-    }
-
-    public void createChannel() {
-        String cnlName = "Alarm Channel";
-        String cnlDesc = "This channel is used by alarm application";
-        NotificationManager notificationManager = (NotificationManager) this.getSystemService(NOTIFICATION_SERVICE);
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(cnlID, cnlName, NotificationManager.IMPORTANCE_HIGH);
-            channel.setDescription(cnlDesc);
-            channel.enableLights(true);
-            channel.enableVibration(true);
-            channel.setLightColor(Color.BLACK);
-
-            if (notificationManager != null) {
-                notificationManager.createNotificationChannel(channel);
-            }
         }
     }
 
