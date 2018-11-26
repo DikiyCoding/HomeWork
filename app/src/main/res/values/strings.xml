@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">Homework</string>
+    <string name="app_name">Homework#8</string>
+    <string name="name">Производитель:</string>
+    <string name="location">Расположение:</string>
+    <string name="founding_date">Год основания:</string>
+    <string name="key_figures">Ключевые фигуры:</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="fragment_home">Home</string>
+    <string name="fragment_list">List</string>
+    <string name="fragment_pages">Pages</string>
+    <string name="btn_sort_by_letter">by location</string>
+    <string name="btn_sort_by_number">by year</string>
+    <string name="tv_sort">Sort</string>
+    <string-array name="tv_page_array">
+        <item>First Page</item>
+        <item>Second Page</item>
+        <item>Third Page</item>
+    </string-array>
 </resources>
