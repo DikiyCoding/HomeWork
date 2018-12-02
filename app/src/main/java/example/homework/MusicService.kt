@@ -10,16 +10,12 @@ import java.util.*
 class MusicService : Service(), MediaPlayer.OnPreparedListener {
 
     private var mediaPlayer: MediaPlayer? = null
-    private var binder: MusicBinder? = null
     private var items: ArrayList<Item>? = null
     var item: Item? = null
         private set
+    
+    private var binder: MusicBinder = MusicBinder()
     private var position: Int = 0
-
-    override fun onCreate() {
-        super.onCreate()
-        binder = MusicBinder()
-    }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         items = intent.getParcelableArrayListExtra("list")
@@ -38,12 +34,12 @@ class MusicService : Service(), MediaPlayer.OnPreparedListener {
      * Play/Pause
      */
     fun play(): Boolean {
-        if (mediaPlayer!!.isPlaying) {
-            mediaPlayer!!.pause()
-            return true
+        return if (mediaPlayer!!.isPlaying) {
+            mediaPlayer?.pause()
+            true
         } else {
-            mediaPlayer!!.start()
-            return false
+            mediaPlayer?.start()
+            false
         }
     }
 
@@ -58,7 +54,7 @@ class MusicService : Service(), MediaPlayer.OnPreparedListener {
             position--
         releaseMediaPlayer()
         setItem(position)
-        return item!!.name
+        return item?.name
     }
 
     /**
@@ -72,7 +68,7 @@ class MusicService : Service(), MediaPlayer.OnPreparedListener {
             position++
         releaseMediaPlayer()
         setItem(position)
-        return item!!.name
+        return item?.name
     }
 
     /**
@@ -97,7 +93,7 @@ class MusicService : Service(), MediaPlayer.OnPreparedListener {
     fun releaseMediaPlayer() {
         if (mediaPlayer != null) {
             try {
-                mediaPlayer!!.release()
+                mediaPlayer?.release()
                 mediaPlayer = null
             } catch (e: Exception) {
                 e.printStackTrace()

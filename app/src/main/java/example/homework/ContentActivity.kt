@@ -8,17 +8,14 @@ import android.os.IBinder
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.View
-import android.widget.ImageButton
-import android.widget.TextView
 import example.homework.MainActivity.Companion.themeId
+import kotlinx.android.synthetic.main.content.*
+import java.lang.IllegalArgumentException
 
 class ContentActivity : AppCompatActivity() {
 
     private var connection: ServiceConnection? = null
-    private var intentContent: Intent? = null
     private var service: MusicService? = null
-    private var play: ImageButton? = null
-    private var name: TextView? = null
     private var bound: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,22 +23,17 @@ class ContentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content)
 
-        bound = false
-
         //Интенты
-        intentContent = intent
+        val intentContent = intent
         val intentService = Intent(this, MusicService::class.java)
-
-        name = findViewById(R.id.tv_name)
-        play = findViewById(R.id.ib_play)
 
         connection = object : ServiceConnection {
 
             override fun onServiceConnected(name: ComponentName, binder: IBinder) {
                 service = (binder as MusicService.MusicBinder).service
-                service!!.releaseMediaPlayer()
-                service!!.setItem(intentContent!!.getIntExtra("position", 0))
-                this@ContentActivity.name!!.text = service!!.item!!.name
+                service?.releaseMediaPlayer()
+                service?.setItem(intentContent.getIntExtra("position", 0))
+                tv_name.text = service?.item?.name
                 bound = true
             }
 
@@ -71,17 +63,18 @@ class ContentActivity : AppCompatActivity() {
         if (!bound) return
         when (view.id) {
             R.id.ib_play -> if (service!!.play())
-                play!!.setImageResource(R.drawable.ic_play_green)
+                ib_play.setImageResource(R.drawable.ic_play_green)
             else
-                play!!.setImageResource(R.drawable.ic_pause_green)
+                ib_play.setImageResource(R.drawable.ic_pause_green)
             R.id.ib_prev -> {
-                play!!.setImageResource(R.drawable.ic_play_green)
-                name!!.text = service!!.previous()
+                ib_play.setImageResource(R.drawable.ic_play_green)
+                tv_name.text = service?.previous()
             }
             R.id.ib_after -> {
-                play!!.setImageResource(R.drawable.ic_play_green)
-                name!!.text = service!!.next()
+                ib_play.setImageResource(R.drawable.ic_play_green)
+                tv_name.text = service?.next()
             }
+            else -> IllegalArgumentException("Something goes wrong")
         }
     }
 

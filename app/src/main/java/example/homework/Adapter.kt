@@ -9,11 +9,7 @@ import android.widget.TextView
 
 internal abstract class Adapter(context: Context, private val items: List<Item>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-    private val inflater: LayoutInflater
-
-    init {
-        this.inflater = LayoutInflater.from(context)
-    }
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = inflater.inflate(R.layout.item, parent, false)
@@ -30,12 +26,10 @@ internal abstract class Adapter(context: Context, private val items: List<Item>)
 
     internal inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        internal val name: TextView
-        private val clickListener: View.OnClickListener
+        internal val name: TextView = itemView.findViewById(R.id.tv_name)
+        private val clickListener: View.OnClickListener = View.OnClickListener { onItemClicked(adapterPosition) }
 
         init {
-            name = itemView.findViewById(R.id.tv_name)
-            clickListener = View.OnClickListener { onItemClicked(adapterPosition) }
             itemView.setOnClickListener(clickListener)
         }
     }

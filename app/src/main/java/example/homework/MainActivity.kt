@@ -5,15 +5,16 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
 import android.view.Menu
+import kotlinx.android.synthetic.main.main.*
+import java.lang.IllegalArgumentException
 import java.util.*
 
 class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
+    private val items: ArrayList<Item> = ArrayList()
     private var intentContent: Intent? = null
     private var intentService: Intent? = null
-    private var items: ArrayList<Item>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         getCurrentTheme()
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         intentContent = Intent(this, ContentActivity::class.java)
         intentService = Intent(this, MusicService::class.java)
 
-        val list = findViewById<RecyclerView>(R.id.list)
         setItems()
 
         val adapter = object : Adapter(this, items!!) {
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         }
         list.adapter = adapter
 
-        intentService!!.putExtra("list", items)
+        intentService?.putExtra("list", items)
         startService(intentService)
     }
 
@@ -51,12 +51,11 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
 
     private fun setItems() {
-        items = ArrayList()
-        items!!.add(Item("Europe – It's a Final Countdown", R.raw.europe_its_a_final_countdown))
-        items!!.add(Item("Haddaway – What is Love", R.raw.haddaway_what_is_love))
-        items!!.add(Item("RickRoll'D – Never Gonna Give You Up", R.raw.rickrolld_never_gonna_give_you_up))
-        items!!.add(Item("Roxette – Listen to Your Heart", R.raw.roxette_listen_to_your_heart))
-        items!!.add(Item("Savage – Only You", R.raw.savage_only_you))
+        items.add(Item("Europe – It's a Final Countdown", R.raw.europe_its_a_final_countdown))
+        items.add(Item("Haddaway – What is Love", R.raw.haddaway_what_is_love))
+        items.add(Item("RickRoll'D – Never Gonna Give You Up", R.raw.rickrolld_never_gonna_give_you_up))
+        items.add(Item("Roxette – Listen to Your Heart", R.raw.roxette_listen_to_your_heart))
+        items.add(Item("Savage – Only You", R.raw.savage_only_you))
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
@@ -85,6 +84,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
                 "yellow" -> themeId = R.style.AppThemeYellow
                 "green" -> themeId = R.style.AppThemeGreen
                 "blue" -> themeId = R.style.AppThemeBlue
+                else -> IllegalArgumentException("Invalid theme id value")
             }
         }
     }
